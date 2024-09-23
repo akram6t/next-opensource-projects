@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  /* Your default theme */
+  --background: @apply bg-gray-100;
+  --foreground: black;
+
+  --primary: @apply bg-teal-700
+}
+
+[data-theme='dark'] {
+  --background: @apply bg-gray-950;
+  --foreground: @apply bg-gray-100;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
