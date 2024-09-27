@@ -36,7 +36,7 @@ export const ThemeSwitch = () => {
   }
 
   return (
-    <div onClick={toggleTheme} className='w-fit p-2'>
+    <div onClick={toggleTheme} className='inline-block w-fit p-2'>
       {
         theme === 'dark' ? <Sun/> : <Moon/>
       }

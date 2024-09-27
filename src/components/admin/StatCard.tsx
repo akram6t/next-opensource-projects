@@ -12,7 +12,7 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, change, icon }) => {
   const isPositive = change >= 0;
 
   return (
-    <div className="bg-base p-4 rounded-lg shadow-md">
+    <div className="bg-card p-4 rounded-lg shadow-md">
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-muted text-sm font-medium">{title}</h3>
         {icon}

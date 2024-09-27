@@ -15,6 +15,7 @@ const config: Config = {
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
         base: 'var(--base)',
+        card: 'var(--card)',
         accent: 'var(--accent)',
         muted: 'var(--muted)'
       },

@@ -4,11 +4,12 @@
 
 :root {
     /* Light theme colors */
-  --background: #efefef;
+  --background: #e4e4e4;
   --forground: #1e1e1e;
-  --primary: #4a34db;
-  --secondary: #2ecc71;
+  --primary: #008650;
+  --secondary: #2eccb7;
   --base: #00000021;
+  --card: #fcfcfc;
   --accent: #e74c3c;
   --muted: #95a5a6;
 }
@@ -17,9 +18,10 @@
     /* Dark theme colors */
     --background: #1e1e1e;
     --forground: #efefef;
-    --primary: #4a34db;
-    --secondary: #2ecc71;
+    --primary: #54ffbb;
+    --secondary: #2eccb2;
     --base: #ffffff1e;
+    --card: #272727;
     --accent: #e74c3c;
     --muted: #7f8c8d;
 }
