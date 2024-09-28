@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import Admin from '@/models/user.model';
+import User from '@/models/user.model';
 import { connectToDB } from '@/lib/db';
 
 export async function POST(req: Request) {
@@ -16,10 +16,10 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
         }
 
-        // Check if the admin already exists
-        const existingAdmin = await Admin.findOne({ email });
-        if (existingAdmin) {
-            return NextResponse.json({ error: 'Admin already exists' }, { status: 409 });
+        // Check if the user already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return NextResponse.json({ error: 'User already exists' }, { status: 409 });
         }
 
         // Hash the password
@@ -27,17 +27,17 @@ export async function POST(req: Request) {
         const hashedPassword = await bcrypt.hash(password, salt);
 
         // Create a new admin
-        const newAdmin = new Admin({
+        const newUser = new User({
             fullName,
             email,
             password: hashedPassword,
         });
 
         // Save the admin to the database
-        await newAdmin.save();
+        await newUser.save();
 
         // Return the created admin
-        return NextResponse.json({ admin: newAdmin }, { status: 201 });
+        return NextResponse.json({ admin: newUser }, { status: 201 });
     } catch (error) {
         console.error('Error in signup:', error);
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
