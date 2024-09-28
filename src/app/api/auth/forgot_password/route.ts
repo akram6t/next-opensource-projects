@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
 import { Resend } from 'resend';
-import Admin from '@/models/admin.model';
+import User from '@/models/user.model';
 import { connectToDB } from '@/lib/db';
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
         }
 
         // Check if the admin exists
-        const admin = await Admin.findOne({ email });
+        const admin = await User.findOne({ email });
         if (!admin) {
             return NextResponse.json({ error: 'Admin not found' }, { status: 404 });
         }

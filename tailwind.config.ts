@@ -14,7 +14,7 @@ const config: Config = {
         forground: 'var(--text)',
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
-        base: 'var(--base)',
+        hover: 'var(--base)',
         card: 'var(--card)',
         accent: 'var(--accent)',
         muted: 'var(--muted)'

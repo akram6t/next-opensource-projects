@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import Admin from '@/models/admin.model';
+import User from '@/models/user.model';
 import { connectToDB } from '@/lib/db';
 
 export async function POST(req: Request) {
@@ -17,20 +17,20 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: 'Email and password are required' }, { status: 400 });
         }
 
-        // Check if the admin exists
-        const admin = await Admin.findOne({ email });
-        if (!admin) {
+        // Check if the user exists
+        const user = await User.findOne({ email });
+        if (!user) {
             return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
         }
 
         // Check if the password is correct
-        const isPasswordValid = await bcrypt.compare(password, admin.password);
+        const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
             return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
         }
 
         // Generate a JWT token
-        const token = jwt.sign({ id: admin._id, email: admin.email }, process.env.JWT_SECRET!, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET!, { expiresIn: '1h' });
 
         // Return the token
         return NextResponse.json({ token }, { status: 200 });
