@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
 import useApi from '@/hooks/useApi';
 
-const MyComponent = () => {
+export const MyComponent = () => {
   const { data, loading, error, fetchData, createData, updateData, deleteData } = useApi<Object[]>();
 
   // Create new data

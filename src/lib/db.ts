@@ -2,8 +2,8 @@
 
 import mongoose, { ConnectOptions } from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI;
-const DATABASE_NAME = process.env.DATABASE_NAME || 'your_default_database_name';
+const MONGODB_URI = process.env.MONGODB_URI!;
+const DATABASE_NAME = process.env.DATABASE_NAME! || 'your_default_database_name';
 
 if (!MONGODB_URI) {
   throw new Error(
