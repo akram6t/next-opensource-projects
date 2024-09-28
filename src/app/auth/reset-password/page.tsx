@@ -21,8 +21,12 @@ export default function ResetPassword() {
 
     try {
       const response = await axios.post('/api/reset-password', { email })
+      console.log(response);
+      
       setMessage('If an account exists for this email, you will receive password reset instructions.')
     } catch (err) {
+      console.log(err);
+      
       setError('Failed to send reset instructions. Please try again.')
     } finally {
       setLoading(false)

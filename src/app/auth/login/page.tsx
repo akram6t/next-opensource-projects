@@ -22,9 +22,13 @@ export default function Login() {
 
     try {
       const response = await axios.post('/api/login', { email, password })
+      console.log(response);
+      
       // Handle successful login
       router.push('/dashboard') // Redirect to dashboard or home page
     } catch (err) {
+      console.log(err);
+      
       setError('Invalid email or password')
     } finally {
       setLoading(false)

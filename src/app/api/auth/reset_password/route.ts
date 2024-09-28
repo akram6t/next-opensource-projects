@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+// import jwt from 'jsonwebtoken';
 import User from '@/models/user.model';
 import { connectToDB } from '@/lib/db';
 
@@ -15,14 +15,6 @@ export async function POST(req: Request) {
         // Validate the input
         if (!token || !newPassword) {
             return NextResponse.json({ error: 'Token and new password are required' }, { status: 400 });
-        }
-
-        // Verify the JWT token
-        let decodedToken;
-        try {
-            decodedToken = jwt.verify(token, process.env.JWT_SECRET!);
-        } catch (error) {
-            return NextResponse.json({ error: 'Invalid or expired token' }, { status: 401 });
         }
 
         // Check if the token is valid and not expired

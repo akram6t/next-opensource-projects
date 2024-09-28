@@ -27,9 +27,13 @@ export default function CreatePassword() {
       // Assume we have a token in the URL query params
       const token = new URLSearchParams(window.location.search).get('token')
       const response = await axios.post('/api/create-password', { password, token })
+      console.log(response);
+      
       // Handle successful password creation
       router.push('/login')
     } catch (err) {
+      console.log(err);
+      
       setError('Failed to create password. Please try again.')
     } finally {
       setLoading(false)

@@ -23,9 +23,13 @@ export default function Register() {
 
     try {
       const response = await axios.post('/api/register', { name, email, password })
+      console.log(response);
+      
       // Handle successful registration
       router.push('/login') // Redirect to login page
     } catch (err) {
+      console.log(err);
+      
       setError('Registration failed. Please try again.')
     } finally {
       setLoading(false)
