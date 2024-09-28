@@ -2,24 +2,11 @@
 import React from 'react';
 import { Users, ShoppingBag, MessageSquare } from 'lucide-react';
 import StatCard from '@/components/admin/StatCard';
-
 import Chart from '@/components/admin/Chart';
 import { ThemeSwitch } from '@/components/ThemeSwitch';
-import Modal from '@/components/ui/DeepModal';
-import { Button } from '@headlessui/react';
-import MyModal from '@/components/ui/HeadModal';
 import { BreadCrump } from '@/components/ui/Breadcrump';
 
 const DashboardPage: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
 
   return (
     <div className="p-4 space-y-6 dark:bg-gray-900">
